@@ -1,9 +1,8 @@
 import { load } from "./load.js"
 import { taskCreator } from "./taskCreator.js"
-import css from "./styles.css";
-var newTask = taskCreator("ciao", "bla", 5);
-var newTask2 = taskCreator("meh", "adsf", 2, "high");
-console.log(newTask);
-console.log(newTask2);
+import { formatDistance, subDays } from 'date-fns'
 
-console.log("i'm dumb")
+//addDom is a function that takes the arguments in this order:
+//type, parent, content, id, class. Pass "" as content, id or class to leave them empty
+import css from "./styles.css";
+load()

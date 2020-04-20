@@ -1,5 +1,18 @@
+import { createForm } from "./domManipulator.js"
+/*import { addDom, addInput, addTextArea, addDueDate } from "./domManipulator.js"
+
 const load = function(){
-    container = document.getElementById("container");
-    content = document.createElement("form");
+    addDom("form", "container", "", "", "creator");
+    addDom("h4", "creator", "Create a new task", "", "taskTitle");
+    addInput("creator", "Name of the task", "formElement", "name");
+    addTextArea("creator", "Short description here...", "formElement", "description")
+    addDom("p", "creator", "Due date", "formElement", "dateDesc")
+    addDueDate("creator", "formElement", "dueDate");
+    addDom("button", "creator", "SUBMIT", "", "submitButton");
 }
+*/ 
+const load = function(){
+    createForm()
+}
+
 export { load }

@@ -1,0 +1,81 @@
+#creator{
+    margin-top: 20px;
+    width:20%;
+    height: 400px;
+    background-color: rgb(253, 243, 242);
+    border-radius: 25px;
+    padding: 15px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    float: left;
+}
+#description{
+    margin-top: 20px;
+    width: 90%;
+    height: 150px;
+    text-align: left;
+    resize: none;
+}
+.formElement{
+    margin: 5px;
+    position: relative;
+    width: 90%;
+}
+#dateDesc{
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+#submitButton{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 30%;
+    height: 5%;
+}
+#tasksContainer{
+    float: right;
+    position: relative;
+    width: 70%;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 7px;
+    grid-column-gap: 7px;
+}
+#content{
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+#dueDate{
+    width: 80%;
+}
+#priority{
+    width: 30%;
+}
+.task{
+    position: relative;
+    height: 170px;
+    border-radius: 15px;
+}
+.name{
+    width: 80%;
+    text-align: center;
+}
+.dueDate{
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+.description {
+    height: 40%;
+    font-size: 11px;
+}
+.deleteButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: red;
+    font-weight: bold;
+}
