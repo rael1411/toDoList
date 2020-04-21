@@ -1,4 +1,4 @@
-import { addToTasks, deleteFunction } from "./taskCreator.js"
+import { addToTasks, deleteFunction, changeStatus } from "./taskCreator.js"
 const createForm = function(){
     let container = document.getElementById("container");
     container.innerHTML = "";
@@ -80,6 +80,13 @@ const showTasks = function(task, index){
                     singleTask.style.backgroundColor = "lightgreen";
                     break;
             }
+        }
+        if (attribute === "completed"){
+            element.textContent = "";
+            if (task[attribute] !== "no"){
+                element.innerHTML = "&#10004;";
+            }
+            element.addEventListener("click", changeStatus);
         }
         element.classList.add(attribute);
         singleTask.appendChild(element);

@@ -1,8 +1,10 @@
 import { load } from "./load.js";
 import { showTasks } from "./domManipulator.js" 
-//factory function to create tasks
 var tasksArray = [];
-const taskCreator = (name, description, dueDate, priority, completed = "No") => {
+var projects = [];
+//factory function to create tasks
+
+const taskCreator = (name, description, dueDate, priority, completed = "no") => {
     if (name === ""){
         name = "Untitled";
     }
@@ -27,4 +29,17 @@ const deleteFunction = function(e){
         showTasks(element, index);
     });
 }
-export { taskCreator, addToTasks, deleteFunction }
+const changeStatus = function(e){
+    document.getElementById("tasksContainer").innerHTML = "";
+    if (tasksArray[e.target.parentElement.id].completed === "no"){
+        tasksArray[e.target.parentElement.id].completed = "yes";
+    }
+    else {
+        tasksArray[e.target.parentElement.id].completed = "no";
+    }
+    tasksArray.forEach((element, index) => {
+        showTasks(element, index);
+    });
+}
+
+export { taskCreator, addToTasks, deleteFunction, changeStatus }
