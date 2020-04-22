@@ -30,21 +30,30 @@ const addToTasks = function(e) {
 }
 
 const deleteFunction = function(e){
-    tasksArray.splice(e.target.parentElement.id, 1);
+    let projectName = document.getElementById("projectName").textContent;
+    let result = projects.find(obj => {
+        return obj.name === projectName;
+    });
+    result.tasks.splice(e.target.parentElement.id, 1);
     document.getElementById("tasksContainer").innerHTML = "";
-    tasksArray.forEach((element, index) => {
+    result.tasks.forEach((element, index) => {
         showTasks(element, index);
     });
 }
 const changeStatus = function(e){
     document.getElementById("tasksContainer").innerHTML = "";
-    if (tasksArray[e.target.parentElement.id].completed === "no"){
-        tasksArray[e.target.parentElement.id].completed = "yes";
+    let projectName = document.getElementById("projectName").textContent;
+    let result = projects.find(obj => {
+        return obj.name === projectName;
+    });
+    if (result.tasks[e.target.parentElement.id].completed === "no"){
+        result.tasks[e.target.parentElement.id].completed = "yes";
     }
     else {
-        tasksArray[e.target.parentElement.id].completed = "no";
+        result.tasks[e.target.parentElement.id].completed = "no";
     }
-    tasksArray.forEach((element, index) => {
+
+    result.tasks.forEach((element, index) => {
         showTasks(element, index);
     });
 }
