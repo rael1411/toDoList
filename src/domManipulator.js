@@ -1,7 +1,41 @@
-import { addToTasks, deleteFunction, changeStatus } from "./taskCreator.js"
+import { addToTasks, deleteFunction, changeStatus, createProject, chooseProject } from "./taskCreator.js"
+const projectSelector = function(projects, currentProject){
+    let container = document.getElementById("projectContainer");
+    container.innerHTML = "";
+    let presentation = document.createElement("span");
+    presentation.textContent = "Current project: ";
+    let thisName = document.createElement("span")
+    thisName.textContent = currentProject.name;
+    thisName.id = "projectName";
+    thisName.style.color = "green";
+    container.appendChild(presentation);
+    container.appendChild(thisName);
+    let newProject = document.createElement("button");
+    newProject.textContent = "NEW";
+    newProject.addEventListener("click", createProject);
+    container.appendChild(newProject);
+    let dropdown = document.createElement("div");
+    dropdown.classList.add("dropdown");
+    let projectDropdown = document.createElement("button");
+    projectDropdown.classList.add("dropbtn");
+    let dropdownContent = document.createElement("div");
+    dropdownContent.classList.add("dropdownContent");
+    container.appendChild(dropdown);
+    dropdown.appendChild(projectDropdown);
+    projectDropdown.textContent = "Choose";
+    dropdown.appendChild(dropdownContent);
+    for (let project in projects){
+        let element = document.createElement("p");
+        element.textContent = projects[project].name;
+        element.addEventListener("click", chooseProject)
+        dropdownContent.append(element);
+    }
+}
 const createForm = function(){
     let container = document.getElementById("container");
     container.innerHTML = "";
+    let br = document.createElement("br");
+    container.appendChild(br);
     let form = document.createElement("form");
     form.id = "creator";
     let title = document.createElement("h4");
@@ -98,4 +132,4 @@ const showTasks = function(task, index){
     deleteButton.textContent = "X";
     singleTask.appendChild(deleteButton);
 }
-export { createForm, showTasks }
+export { createForm, showTasks, projectSelector }

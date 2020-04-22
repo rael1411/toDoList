@@ -1,7 +1,8 @@
 import { load } from "./load.js";
-import { showTasks } from "./domManipulator.js" 
+import { showTasks, projectSelector, createForm } from "./domManipulator.js" 
 var tasksArray = [];
 var projects = [];
+
 //factory function to create tasks
 
 const taskCreator = (name, description, dueDate, priority, completed = "no") => {
@@ -14,10 +15,16 @@ const taskCreator = (name, description, dueDate, priority, completed = "no") => 
 const addToTasks = function(e) {
     e.preventDefault();
     let thisTask = taskCreator(taskName.value, description.value, dueDate.value, priority.value);
-    tasksArray.push(thisTask);
-    load();
+    let projectName = document.getElementById("projectName").textContent;
+    let result = projects.find(obj => {
+        return obj.name === projectName;
+    });
+    result.tasks.push(thisTask);
+    createForm();
+    projectSelector(projects, result);
+    showTasks();
     document.getElementById("tasksContainer").innerHTML = "";
-    tasksArray.forEach((element, index) => {
+    result.tasks.forEach((element, index) => {
         showTasks(element, index);
     });
 }
@@ -41,5 +48,33 @@ const changeStatus = function(e){
         showTasks(element, index);
     });
 }
+const projectCreator = (name, tasks = []) => {
+    return {name, tasks}
+}
+const createProject = function(){
+    let name = prompt("What do you want to call your project?")
+    projects.push(projectCreator(name));
+    projectSelector(projects, projects[projects.length-1]);
+    document.getElementById("tasksContainer").innerHTML = "";
+    projects[projectSelector.length-1].forEach((element, index) => {
+        showTasks(element, index);
+    })
+    
+}
 
-export { taskCreator, addToTasks, deleteFunction, changeStatus }
+projects.push(projectCreator("Default", tasksArray));
+const selector = function(){
+    projectSelector(projects, projects[0]);
+}
+const chooseProject = function(e){
+    let result = projects.find(obj => {
+        return obj.name === e.target.textContent;
+    });
+    createForm();
+    projectSelector(projects, result);
+    document.getElementById("tasksContainer").innerHTML = "";
+    result.tasks.forEach((element, index) => {
+        showTasks(element, index);
+    });;
+}
+export { taskCreator, addToTasks, deleteFunction, changeStatus, selector, createProject, chooseProject }
