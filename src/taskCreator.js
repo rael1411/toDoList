@@ -1,7 +1,6 @@
 import { load } from "./load.js";
 import { showTasks, projectSelector, createForm } from "./domManipulator.js" 
-var tasksArray = [];
-var projects = [];
+
 
 //factory function to create tasks
 
@@ -20,6 +19,7 @@ const addToTasks = function(e) {
         return obj.name === projectName;
     });
     result.tasks.push(thisTask);
+    localStorage.setItem('projects', JSON.stringify(projects));
     createForm();
     projectSelector(projects, result);
     showTasks();
@@ -35,6 +35,7 @@ const deleteFunction = function(e){
         return obj.name === projectName;
     });
     result.tasks.splice(e.target.parentElement.id, 1);
+    localStorage.setItem('projects', JSON.stringify(projects));
     document.getElementById("tasksContainer").innerHTML = "";
     result.tasks.forEach((element, index) => {
         showTasks(element, index);
@@ -52,6 +53,7 @@ const changeStatus = function(e){
     else {
         result.tasks[e.target.parentElement.id].completed = "no";
     }
+    localStorage.setItem('projects', JSON.stringify(projects));
 
     result.tasks.forEach((element, index) => {
         showTasks(element, index);
@@ -63,6 +65,7 @@ const projectCreator = (name, tasks = []) => {
 const createProject = function(){
     let name = prompt("What do you want to call your project?")
     projects.push(projectCreator(name));
+    localStorage.setItem('projects', JSON.stringify(projects));
     projectSelector(projects, projects[projects.length-1]);
     document.getElementById("tasksContainer").innerHTML = "";
     projects[projectSelector.length-1].forEach((element, index) => {
@@ -70,8 +73,17 @@ const createProject = function(){
     })
     
 }
-
-projects.push(projectCreator("Default", tasksArray));
+if (!localStorage.getItem('projects')){
+    console.log("storage not found");
+    // creates and initializes the projects folder with one project
+    var tasksArray = []; 
+    var projects = [];
+    projects.push(projectCreator("Default", tasksArray));
+}
+else {
+    console.log("storage found")
+    var projects = JSON.parse(window.localStorage.getItem('projects'));
+}
 const selector = function(){
     projectSelector(projects, projects[0]);
 }
@@ -86,4 +98,5 @@ const chooseProject = function(e){
         showTasks(element, index);
     });;
 }
+
 export { taskCreator, addToTasks, deleteFunction, changeStatus, selector, createProject, chooseProject }
