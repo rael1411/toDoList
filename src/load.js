@@ -1,5 +1,5 @@
-import { createForm } from "./domManipulator.js"
-import { selector } from "./taskCreator.js"
+import { createForm } from "./domManipulator.js";
+import { selector } from "./taskCreator.js";
 /*import { addDom, addInput, addTextArea, addDueDate } from "./domManipulator.js"
 
 const load = function(){
@@ -11,10 +11,11 @@ const load = function(){
     addDueDate("creator", "formElement", "dueDate");
     addDom("button", "creator", "SUBMIT", "", "submitButton");
 }
-*/ 
-const load = function(){
-    selector();
-    createForm();
-}
+*/
 
-export { load }
+const load = function () {
+  selector();
+  createForm();
+};
+
+export { load };

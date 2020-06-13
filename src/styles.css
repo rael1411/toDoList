@@ -1,135 +1,141 @@
-#creator{
-    margin-top: 40px;
-    width:20%;
-    height: 400px;
-    background-color: rgb(253, 243, 242);
-    border-radius: 25px;
-    padding: 15px;
-    display: inline-block;
-    text-align: center;
-    position: relative;
+#creator {
+  margin-top: 40px;
+  width: 20%;
+  height: 400px;
+  background-color: rgb(253, 243, 242);
+  border-radius: 25px;
+  padding: 15px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
 }
-#description{
-    margin-top: 20px;
-    width: 90%;
-    height: 150px;
-    text-align: left;
-    resize: none;
+#description {
+  margin-top: 20px;
+  width: 90%;
+  height: 150px;
+  text-align: left;
+  resize: none;
 }
-.formElement{
-    margin: 5px;
-    position: relative;
-    width: 90%;
+.formElement {
+  margin: 5px;
+  position: relative;
+  width: 90%;
 }
-#dateDesc{
-    margin-bottom: 3px;
-    font-size: 12px;
+#dateDesc {
+  margin-bottom: 3px;
+  font-size: 12px;
 }
-#submitButton{
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    width: 30%;
-    height: 5%;
+#submitButton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30%;
+  height: 5%;
 }
-#tasksContainer{
-    margin-top: 40px;
-    float: right;
-    position: relative;
-    width: 70%;
-    border-radius: 25px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-row-gap: 10px;
-    grid-column-gap: 7px;
-    right: 5px;
+#tasksContainer {
+  margin-top: 40px;
+  float: right;
+  position: relative;
+  width: 70%;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 10px;
+  grid-column-gap: 7px;
+  right: 5px;
 }
-#content{
-    padding: 20px;
-    width: 100%;
-    height: 100%;
+#content {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
 }
-#dueDate{
-    width: 80%;
+#dueDate {
+  width: 80%;
 }
-#priority{
-    width: 30%;
+#priority {
+  width: 30%;
 }
-.task{
-    position: relative;
-    height: 170px;
-    border-radius: 15px;
+.task {
+  position: relative;
+  height: 170px;
+  border-radius: 15px;
 }
-.name{
-    width: 80%;
-    text-align: center;
+.name {
+  width: 80%;
+  text-align: center;
 }
-.dueDate{
-    position: absolute;
-    font-size: 12px;
-    left: 5px;
-    bottom: 5px;
+.dueDate {
+  position: absolute;
+  font-size: 12px;
+  left: 5px;
+  bottom: 5px;
 }
 .description {
-    height: 40%;
-    font-size: 11px;
-    overflow: hidden;
+  height: 40%;
+  font-size: 11px;
+  overflow: hidden;
 }
 .deleteButton {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    color: red;
-    font-weight: bold;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: red;
+  font-weight: bold;
 }
 .completed {
-    position: absolute;
-    right: 10px;
-    bottom: 3px;
-    height: 20px;
-    width: 20px;
-    background-color: whitesmoke;
-    color: green;
-    text-align: center;
-    font-size: 18px;
+  position: absolute;
+  right: 10px;
+  bottom: 3px;
+  height: 20px;
+  width: 20px;
+  background-color: whitesmoke;
+  color: green;
+  text-align: center;
+  font-size: 18px;
 }
-#projectContainer{
-    top: 10px;
-    left: 10px;
-    color: black;
-    display: inline;
+#projectContainer {
+  top: 10px;
+  left: 10px;
+  color: black;
+  display: inline;
 }
-#container{
-    display: inline;
+#container {
+  display: inline;
 }
 .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
 .dropdown {
-    position: relative;
-    display: inline-block;
-    float: right;
-  }
-  .dropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  .dropdownContent p {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  .dropdownContent p:hover {background-color: #ddd;}
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdownContent p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdownContent p:hover {
+  background-color: #ddd;
+}
 
-  .dropdown:hover .dropdownContent {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
